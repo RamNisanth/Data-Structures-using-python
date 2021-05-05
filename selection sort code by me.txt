@@ -1,0 +1,16 @@
+def selection_sort(elements):
+    for i in range(len(elements)-1):
+        small=1000000
+        for j in range(i,len(elements)):
+            if small>elements[j]:
+                small=elements[j]
+        elements.remove(small)
+        elements.insert(i,small)
+
+if __name__=="__main__":
+    elements=[2,4,3,5,1,6,0]
+    print(elements)
+    selection_sort(elements)
+    print(elements)
+                
+            

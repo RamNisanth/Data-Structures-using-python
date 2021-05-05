@@ -1,0 +1,65 @@
+class Node:
+    def __init__(self,data,Next,Prev):
+        self.data=data
+        self.Next=Next
+        self.Prev=Prev
+class Double_ll:
+    def __init__(self):
+        self.Next=None
+        self.Prev=None
+    def insert_at_the_begginning(self,data):
+        node=Node(data,self.Next,self.Prev)
+        self.Next=node
+        if self.Next:
+            self.Next.Prev=self
+                
+    def insert_at_the_end(self,data):
+        itr=self.Next
+        while itr.Next:
+            itr=itr.Next
+        node=Node(data,None,itr)
+        itr.Next=node
+    
+    def insert_at_index(self,data,index):
+        itr=self.Next
+        while itr.Prev:
+            itr=itr.Prev
+        for i in range(index-1):
+            itr=itr.Next
+        node=Node(data,itr.Next,itr)    
+        itr.Next=node
+        itr.Next.Prev=node
+    
+    def length_of_list(self):
+        i=0
+        itr=self.Next
+        while itr.Prev:
+            itr=itr.Prev
+        while itr.Next:
+            itr=itr.Next
+            i+=1
+        return i    
+        
+        
+    def print(self):
+        ll=""
+        itr=self.Next
+        while itr:
+            ll=ll+str(itr.data)+"--->"
+            itr=itr.Next
+        print(ll)
+            
+            
+        
+
+if __name__=="__main__":
+    Dll=Double_ll()
+    Dll.insert_at_the_begginning(23)
+    Dll.insert_at_the_begginning(24)
+    Dll.insert_at_the_begginning(25)
+    Dll.insert_at_the_begginning(26)
+    Dll.insert_at_the_end(45)
+    Dll.insert_at_index(0,3)
+    print(Dll.length_of_list())
+    Dll.print()
+    

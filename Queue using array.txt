@@ -1,0 +1,23 @@
+class Queue:
+    def __init__(self):
+        self.data=[]
+    def enque(self,element):
+        self.data.insert(0,element)
+    def deque(self):
+        return self.data.pop()
+    def print(self):
+        if len(self.data)==0:
+            print("ERROR: queue is empty")
+            return
+        print("Your queue: ",self.data)
+if __name__=="__main__":
+    Q=Queue()
+    Q.enque(21)
+    Q.enque(222)
+    Q.enque(23)
+    Q.print()
+    print(Q.deque())
+    print(Q.deque())
+    print(Q.deque())
+    Q.print()
+    
